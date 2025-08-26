@@ -1,0 +1,19 @@
+{{!-- {{lifted from https://github.com/brandonkylely/jsonresume-theme-macchiato-plus/blob/92bc9ad00ce2a66024a031e9e6a3d60819172de3/src/partials/certificates.hbs}} --}}
+{{#if resume.certificates.length}}
+<div class="container certificates-container">
+    {{> title value="Certifications"}} {{#each resume.certificates}}
+    <section class="item">
+        {{#if date}}
+        <h5 class="italic">
+            {{formatDate date}}
+        </h5>
+        {{/if}}
+
+        <h3 class="bold">{{name}}</h3>
+
+        <h4>{{#if issuer}}{{issuer}}{{/if}}</h4>
+
+    </section>
+    {{/each}}
+</div>
+{{/if}}
