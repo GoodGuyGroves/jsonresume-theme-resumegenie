@@ -270,18 +270,25 @@ ul.two-column li {
   clear: both;
 }
 
+/* A table, not a grid: WeasyPrint splits table cells across pages but pushes grid items onto pages of their own */
 .resume-content {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  grid-gap: 20px;
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+  table-layout: fixed;
 }
 
 .left-column {
+  display: table-cell;
+  width: 180px;
+  padding-right: 20px;
+  vertical-align: top;
   word-wrap: break-word;
 }
 
 .right-column {
-  min-width: 0;
+  display: table-cell;
+  vertical-align: top;
 }
 
 .item {
@@ -325,9 +332,6 @@ ul.two-column li {
 
   .page .resume-content {
     padding: 0 22px 0 34px;
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    grid-gap: 20px;
   }
 
   .page .resume-content .right-column {
