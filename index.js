@@ -12,6 +12,8 @@ handlebars.registerHelper({
   formatDate: date => moment(date).format('MM/YYYY'),
   lowercase: s => s.toLowerCase(),
   eq: (a, b) => a === b,
+  // A phone arrives as RFC 3966 (tel:+27-21-555-0100)
+  tel: p => (p || '').replace(/^tel:/, ''),
 });
 
 function render(resume) {

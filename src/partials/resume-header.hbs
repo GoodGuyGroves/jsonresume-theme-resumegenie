@@ -1,3 +1,15 @@
+{{#if resume.recruiter}}
+<header class="recruiter-header">
+    {{#if resume.recruiter.logo}}
+    <img class="recruiter-logo" src="{{resume.recruiter.logo}}" alt="{{resume.recruiter.name}}">
+    {{/if}}
+    <div class="recruiter-contact">
+        {{#if resume.recruiter.name}}<strong>{{resume.recruiter.name}}</strong>{{/if}}
+        {{#if resume.recruiter.email}}<a href="mailto:{{resume.recruiter.email}}">{{resume.recruiter.email}}</a>{{/if}}
+        {{#if resume.recruiter.phone}}<span>{{tel resume.recruiter.phone}}</span>{{/if}}
+    </div>
+</header>
+{{/if}}
 {{#resume.basics}}
 <header class="resume-header clearfix">
     <div class="profile-header pull-left">
