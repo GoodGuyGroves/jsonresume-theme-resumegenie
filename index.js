@@ -10,6 +10,14 @@ handlebars.registerHelper({
   // formatAddress: (...args) => addressFormat(args).join(' '),
   formatAddress: (...args) => args.filter(arg => typeof arg !== 'object').join(' '),
   formatDate: date => moment(date).format('MM/YYYY'),
+  // Consecutive entries with the same company become one {name, website, showWebsite, description, roles}
+  groupWork: work =>
+    work.reduce((groups, role) => {
+      const last = groups[groups.length - 1];
+      if (last && role.name && last.name === role.name) last.roles.push(role);
+      else groups.push({ name: role.name, website: role.website, showWebsite: role.showWebsite, description: role.description, roles: [role] });
+      return groups;
+    }, []),
   lowercase: s => s.toLowerCase(),
   eq: (a, b) => a === b,
   // A phone arrives as RFC 3966 (tel:+27-21-555-0100)

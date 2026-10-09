@@ -14,22 +14,7 @@
         {{/if}}
     </h3>
     {{/if}}
-    {{#if startDate}}
-    <h5 class="italic pull-right">
-        <span class="startDate">{{formatDate startDate}}</span>
-        {{#if endDate}}
-            {{#unless (eq startDate endDate)}}
-            <span class="endDate"> - {{formatDate endDate}}</span>
-            {{/unless}}
-        {{else}}
-        <span class="endDate"> - Present</span>
-        {{/if}}
-    </h5>
-    {{else if releaseDate}}
-    <h5 class="italic pull-right">
-        {{formatDate releaseDate}}
-    </h5>
-    {{/if}}
+    {{> dates}}
 </div>
 {{#if description}}
   <h4>

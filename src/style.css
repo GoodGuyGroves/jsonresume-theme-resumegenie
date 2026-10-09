@@ -322,6 +322,10 @@ ul.two-column li {
   margin-bottom: 15px;
 }
 
+.role {
+  margin-top: 10px;
+}
+
 .item:last-child {
   margin-bottom: 0;
 }

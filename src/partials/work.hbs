@@ -2,32 +2,27 @@
 <div class="container work-container">
     {{> title value="Experience"}}
 
-    {{#each resume.work}}
+    {{#each (groupWork resume.work)}}
         <section class="item">
-            {{> section-header name=this.name }}
-
-            {{#if position}}
-            <h4>{{position}}</h4>
-            {{/if}}
-
-            {{#if summary}}
-            <p class="summary">{{summary}}</p>
-            {{/if}}
-
-            {{#if highlights.length}}
-            <ul>
-                {{#each highlights}}
-                <li>{{.}}</li>
+            {{#if (eq roles.length 1)}}
+                {{#with roles.[0]}}
+                    {{> section-header}}
+                    {{#if position}}
+                    <h4>{{position}}</h4>
+                    {{/if}}
+                    {{> work-body}}
+                {{/with}}
+            {{else}}
+                {{> section-header}}
+                {{#each roles}}
+                    <div class="role">
+                        <div class="section-header clearfix">
+                            <h4 class="bold pull-left">{{position}}</h4>
+                            {{> dates}}
+                        </div>
+                        {{> work-body}}
+                    </div>
                 {{/each}}
-            </ul>
-            {{/if}}
-
-            {{#if keywords.length}}
-            <div class="flex-container">
-                {{#each keywords}}
-                    <h6 class="skill">{{.}}</h6>
-                {{/each}}
-            </div>
             {{/if}}
         </section>
     {{/each}}
