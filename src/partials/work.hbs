@@ -6,7 +6,7 @@
         <section class="item">
             {{#if (eq roles.length 1)}}
                 {{#with roles.[0]}}
-                    {{> section-header}}
+                    {{> section-header website=url}}
                     {{#if position}}
                     <h4>{{position}}</h4>
                     {{/if}}

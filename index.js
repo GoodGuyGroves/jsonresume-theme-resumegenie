@@ -15,7 +15,7 @@ handlebars.registerHelper({
     work.reduce((groups, role) => {
       const last = groups[groups.length - 1];
       if (last && role.name && last.name === role.name) last.roles.push(role);
-      else groups.push({ name: role.name, website: role.website, showWebsite: role.showWebsite, description: role.description, roles: [role] });
+      else groups.push({ name: role.name, website: role.url, showWebsite: role.showWebsite, description: role.description, roles: [role] });
       return groups;
     }, []),
   lowercase: s => s.toLowerCase(),
