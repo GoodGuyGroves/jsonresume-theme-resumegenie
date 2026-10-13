@@ -375,7 +375,9 @@ ul.two-column li {
     min-width: 0;
   }
 
-  .work-container .item {
+  /* A company with several roles may break between them; each role, or a single-role company, stays whole */
+  .work-container .item:not(:has(.role)),
+  .work-container .role {
     page-break-inside: avoid;
   }
 
@@ -395,8 +397,11 @@ ul.two-column li {
     page-break-inside: avoid;
   }
 
-  .title {
-    page-break-after: avoid;
+  /* WeasyPrint keeps headings with what follows (its own default for h1-h6) by pushing the whole two-column
+     table row back, leaving pages half empty. ponytail: a heading can now end a page; wrap it with its first
+     entry if that shows up */
+  h1, h2, h3, h4, h5, h6 {
+    break-after: auto;
   }
 
   .fa-external-link {
