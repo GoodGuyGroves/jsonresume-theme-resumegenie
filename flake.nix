@@ -18,7 +18,7 @@
           
           src = null;
           
-          nativeBuildInputs = with pkgs; [ nodejs nodePackages.npm ];
+          nativeBuildInputs = with pkgs; [ nodejs ];
           
           unpackPhase = "true";
           
@@ -46,7 +46,6 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             nodejs
-            nodePackages.npm
           ];
           
           shellHook = ''
