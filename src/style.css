@@ -375,9 +375,10 @@ ul.two-column li {
     min-width: 0;
   }
 
-  /* A company with several roles may break between them; each role, or a single-role company, stays whole */
-  .work-container .item:not(:has(.role)),
-  .work-container .role {
+  /* A role may break across pages so pages fill; a bullet, a keyword block or a role's title line never does */
+  .work-container li,
+  .work-container .flex-container,
+  .work-container .section-header {
     page-break-inside: avoid;
   }
 
